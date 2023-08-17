@@ -19,10 +19,10 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 - Fetches song data from the backend using API calls.
 - Offers a simple and intuitive user interface for song exploration.
 
-  ## Tech Stack
+## Stack
 
-  Backend: Node.js, NestJS
-  Frontend: React
-  Database: SQL (configured in your backend database settings)
-  Docker: Used for containerization
-  TypeScript: Used for improved code quality and maintainability
+- Backend: Node.js, NestJS
+- Frontend: React
+- Database: SQL (configured in your backend database settings)
+- Docker: Used for containerization
+- TypeScript: Used for improved code quality and maintainability
