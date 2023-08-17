@@ -1,0 +1,41 @@
+RUN apt-get update && apt-get install -y git curl
+
+USER $USER
+
+# RUN apt-get update && apt-get install -y postgresql postgresql-contrib
+
+
+# Install Node.js and npm using the NodeSource setup script
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
+RUN echo "nodejs installed"
+
+# Check Node.js and npm versions
+RUN node -v
+RUN npm -v
+
+RUN mkdir -p /home/$USER/song_list/backend/node_modules && chown -R $USER:$USER /home/$USER/song_list/backend
+
+WORKDIR /home/${USER}/backend
+#COPY package*.json ./
+COPY --chown=$USER:$USER package*.json ./
+
+#RUN npm install -g npm
+#RUN npm install  @nestjs/cli
+#RUN nest new backend
+RUN git clone https://github.com/nestjs/typescript-starter.git ./
+
+RUN npm install
+
+#RUN npm install 
+#RUN npm run dev
+
+# postgres env variables 
+
+# ENV POSTGRES_USER=user
+# ENV POSTGRES_PASSWORD=password
+# ENV POSTGRES_DB=song_database
+
+ 
+CMD ["npm", "run", "start:dev"] 
