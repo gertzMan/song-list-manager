@@ -1,22 +1,27 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SongModule } from './song/song.module';
-import { Song } from './song/song.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SongModule } from './song/song.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: '172.17.0.2',
-      port: 5432,
-      username: 'song',
+      host: process.env.DATABASE_HOST,
+      port: Number(process.env.DATABASE_PORT),
+      username: 'user',
       password: 'password',
-      database: 'song_db',
-      entities: [Song],
+      database: 'songdb',
+      autoLoadEntities: true,
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Song])
+    ServeStaticModule.forRoot({
+      rootPath: path.join(__dirname, '..', '/client'),
+    }),
+    SongModule,
   ],
   controllers: [AppController],
   providers: [AppService],

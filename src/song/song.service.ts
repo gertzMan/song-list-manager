@@ -1,39 +1,38 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Song } from './song.entity';
 import * as fs from 'fs';
-import * as csv from 'csv-parser'
-
-
+import * as csv from 'csv-parser';
+import { Song } from '../song.entity';
 @Injectable()
 export class SongService {
   constructor(
     @InjectRepository(Song)
-    private  songRepository: Repository<Song>,
-  ) {}
- 
-  async loadCSV(filePath: string): Promise<void> {
+    private songRepository: Repository<Song>,
+  ) {
+    this.loadCsv();
+  }
+
+  async getAllSongs(): Promise<Song[]> {
+    return this.songRepository.find();
+  }
+
+  async loadCsv(): Promise<void> {
+    const filePath = 'src/data/songs.csv';
     try {
-      const songs = [];
- 
       fs.createReadStream(filePath)
-        .pipe(csv())
-        .on('data', (row) => {
-          songs.push({
-            band: row.band.toLowerCase(),
-            title: row.title.toLowerCase(),
-          });
-        })
-        .on('end', async () => {
-          await this.songRepository.save(songs);
+        .pipe(csv({ separator: ';' }))
+        .on('data', async (row) => {
+          const song: Song = {
+            name: row['Song Name'],
+            band: row['Band'],
+            year: row['Year'],
+          };
+          await this.songRepository.save(song);
         });
     } catch (error) {
-      console.error(error);
+      console.error('An error occurred while reading the CSV file:', error);
+      throw new Error('Failed to load songs from CSV file');
     }
-  }
- 
-  async getSongs(): Promise<Song[]> {
-    return this.songRepository.find({ order: { band: 'ASC' } });
   }
 }
