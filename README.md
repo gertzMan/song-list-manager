@@ -4,6 +4,14 @@
 
 Welcome to the Song List Manager repository! This project is a simple web application built with a Node.js backend using NestJS and a React frontend. The app's purpose is to read and manage a list of songs from a CSV file, transform them into lowercase, and display them in an organized table.
 
+## Showcase
+
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305035/1_bzkcrt.png)
+
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305034/3_gz3d3v.png)
+
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305034/2_e2qs1o.png)
+
 ## Features
 
 **Backend (NestJS):**
