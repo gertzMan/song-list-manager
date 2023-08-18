@@ -38,6 +38,6 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 
 - Backend: Node.js, NestJS
 - Frontend: React
-- Database: SQL (configured in your backend database settings)
+- Database: SQL (PostgreSQL)
 - Docker: Used for containerization
 - TypeScript: Used for improved code quality and maintainability
