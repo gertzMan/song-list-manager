@@ -15,9 +15,9 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 
 ![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382959/1_t57dzv.png)
 
-![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382795/2_wiifye.png)
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692383681/2_xxrgem.png)
 
-![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382795/3_ucrscw.png)
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692383680/3_nckp2g.png)
 
 ## Features
 

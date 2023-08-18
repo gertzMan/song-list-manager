@@ -34,8 +34,8 @@ export class SongService {
           .pipe(csv({ separator: ';' }))
           .on('data', async (row) => {
             const song: Song = {
-              name: row['Song Name'],
-              band: row['Band'],
+              name: row['Song Name'].toLowerCase(),
+              band: row['Band'].toLowerCase(),
               year: row['Year'],
             };
             await this.songRepository.save(song);
