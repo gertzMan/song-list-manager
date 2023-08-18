@@ -14,25 +14,38 @@ export class SongService {
   }
 
   async getAllSongs(): Promise<Song[]> {
-    return this.songRepository.find();
+    return await this.songRepository.find({
+      order: {
+        band: 'ASC',
+      },
+    });
+  }
+
+  async isDatabaseEmpty(): Promise<boolean> {
+    const count = await this.songRepository.count();
+    return count === 0;
   }
 
   async loadCsv(): Promise<void> {
-    const filePath = 'src/data/songs.csv';
-    try {
-      fs.createReadStream(filePath)
-        .pipe(csv({ separator: ';' }))
-        .on('data', async (row) => {
-          const song: Song = {
-            name: row['Song Name'],
-            band: row['Band'],
-            year: row['Year'],
-          };
-          await this.songRepository.save(song);
-        });
-    } catch (error) {
-      console.error('An error occurred while reading the CSV file:', error);
-      throw new Error('Failed to load songs from CSV file');
+    if (await this.isDatabaseEmpty()) {
+      const filePath = 'src/data/songs.csv';
+      try {
+        fs.createReadStream(filePath)
+          .pipe(csv({ separator: ';' }))
+          .on('data', async (row) => {
+            const song: Song = {
+              name: row['Song Name'],
+              band: row['Band'],
+              year: row['Year'],
+            };
+            await this.songRepository.save(song);
+          });
+      } catch (error) {
+        console.error('An error occurred while reading the CSV file:', error);
+        throw new Error('Failed to load songs from CSV file');
+      }
+    } else {
+      console.log('Database is not empty. Skipping CSV import.');
     }
   }
 }

@@ -19,7 +19,7 @@ import * as path from 'path';
       synchronize: true,
     }),
     ServeStaticModule.forRoot({
-      rootPath: path.join(__dirname, '..', '/client'),
+      rootPath: path.join(__dirname, '..', 'client'),
     }),
     SongModule,
   ],
