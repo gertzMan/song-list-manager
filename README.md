@@ -7,17 +7,17 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 ## Instructions
 
 - npm i
-- `docker-compose up` -d to start the db
+- `docker-compose up -d` to start the db
 - npm start
 - when uploading to production environment make sure to set the environment variables to production
 
 ## Showcase
 
-![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305035/1_bzkcrt.png)
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382959/1_t57dzv.png)
 
-![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305034/3_gz3d3v.png)
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382795/2_wiifye.png)
 
-![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692305034/2_e2qs1o.png)
+![](https://res.cloudinary.com/dp2xkwxbk/image/upload/v1692382795/3_ucrscw.png)
 
 ## Features
 
