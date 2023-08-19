@@ -10,7 +10,9 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 - npm i
 - `docker-compose up -d` to start the db
 - npm start
-- when uploading to production environment make sure to set the environment variables to production
+- for production run `npm run build` and use the compiled result found in the dist folder.
+- when uploading to a production environment make sure to set the environment variables correctly depends (on
+  which ever hosting service is chosen.)
 
 ## Showcase
 
