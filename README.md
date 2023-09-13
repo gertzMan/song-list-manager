@@ -6,13 +6,13 @@ Welcome to the Song List Manager repository! This project is a simple web applic
 
 ## Instructions
 
-- the frontend repo can be found here: https://github.com/gertzMan/song-list-manager-frontend. It's build ready for production version is found in the in client folder of this's repo's root. The server is set to serve it.
+- the frontend repo can be found here: https://github.com/gertzMan/song-list-manager-frontend. It's build-ready-for-production version is found in the in client folder of this repo's root. The server is set to serve it.
 - npm i
 - `docker-compose up -d` to start the db
 - npm start
 - for production run `npm run build` and use the compiled result found in the dist folder.
-- when uploading to a production environment make sure to set the environment variables correctly depends (on
-  which ever hosting service is chosen.)
+- when uploading to a production environment make sure to set the environment variables correctly (depends on
+  the hosting service chosen.)
 
 ## Showcase
 
